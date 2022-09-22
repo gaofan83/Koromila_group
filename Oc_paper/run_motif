@@ -1,0 +1,16 @@
+findMotifsGenome.pl overlap_opa_only_early.bed dm6 overlap_opa_only_early_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_opa_oc_early.bed dm6 overlap_opa_oc_early_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_oc_only_early.bed dm6 overlap_oc_only_early_MotifOutput/ -size 200 -mask -p 64
+
+findMotifsGenome.pl overlap_opa_only_late.bed dm6 overlap_opa_only_late_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_opa_oc_late.bed dm6 overlap_opa_oc_late_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_oc_only_late.bed dm6 overlap_oc_only_late_MotifOutput/ -size 200 -mask -p 64
+
+findMotifsGenome.pl ../BE_dm6.bed dm6 bcd_early_MotifOutput/ -size 200 -mask -p 24
+findMotifsGenome.pl ../O5E_dm6.bed dm6 oc_early_MotifOutput/ -size 200 -mask -p 24
+findMotifsGenome.pl ../O6L_dm6.bed dm6 oc_late_MotifOutput/ -size 200 -mask -p 24
+
+findMotifsGenome.pl overlap_opa_only_early_nobcd.bed dm6 overlap_opa_only_early_nobcd_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_opa_oc_early_nobcd.bed dm6 overlap_opa_oc_early_nobcd_MotifOutput/ -size 200 -mask -p 64
+findMotifsGenome.pl overlap_oc_only_early_nobcd.bed dm6 overlap_oc_only_early_nobcd_MotifOutput/ -size 200 -mask -p 64
+

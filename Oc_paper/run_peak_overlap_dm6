@@ -1,0 +1,74 @@
+cat zld_nc14b_peaks_q1E-5_091019.bed opa_nc14b_peaks_q1E-5_091019.bed ../BE_dm6.bed ../O5E_dm6.bed | awk '{if($1!~"chrY") print $1"\t"$2"\t"$3}' | sortBed | mergeBed -d 200 > all_TF_early.bed
+intersectBed -a all_TF_early.bed -b zld_nc14b_peaks_q1E-5_091019.bed -u > CHIP_zld_early.bed
+intersectBed -a all_TF_early.bed -b opa_nc14b_peaks_q1E-5_091019.bed -u > CHIP_opa_early.bed
+intersectBed -a all_TF_early.bed -b ../BE_dm6.bed -u > CHIP_bcd_early.bed
+intersectBed -a all_TF_early.bed -b ../O5E_dm6.bed -u > CHIP_oc_early.bed
+awk '{print $1":"$2"-"$3}' CHIP_zld_early.bed > CHIP_zld_early.txt
+awk '{print $1":"$2"-"$3}' CHIP_opa_early.bed > CHIP_opa_early.txt
+awk '{print $1":"$2"-"$3}' CHIP_bcd_early.bed > CHIP_bcd_early.txt
+awk '{print $1":"$2"-"$3}' CHIP_oc_early.bed > CHIP_oc_early.txt
+
+cat zld_nc14d_peaks_q1E-5_091019.bed opa_nc15_peaks_q1E-5_101019.bed ../O6L_dm6.bed | awk '{if($1!~"chrY") print $1"\t"$2"\t"$3}' | sortBed | mergeBed -d 200 > all_TF_late.bed
+intersectBed -a all_TF_late.bed -b zld_nc14d_peaks_q1E-5_091019.bed -u > CHIP_zld_late.bed
+intersectBed -a all_TF_late.bed -b opa_nc15_peaks_q1E-5_101019.bed -u > CHIP_opa_late.bed
+intersectBed -a all_TF_late.bed -b ../O6L_dm6.bed -u > CHIP_oc_late.bed
+awk '{print $1":"$2"-"$3}' CHIP_zld_late.bed > CHIP_zld_late.txt
+awk '{print $1":"$2"-"$3}' CHIP_opa_late.bed > CHIP_opa_late.txt
+awk '{print $1":"$2"-"$3}' CHIP_oc_late.bed > CHIP_oc_late.txt
+
+
+intersectBed -a CHIP_opa_early.bed -b CHIP_oc_early.bed -u > overlap_opa_oc_early.bed
+intersectBed -a CHIP_opa_early.bed -b CHIP_oc_early.bed -v > overlap_opa_only_early.bed
+intersectBed -a CHIP_oc_early.bed -b CHIP_opa_early.bed -v > overlap_oc_only_early.bed
+
+intersectBed -a overlap_opa_oc_early.bed -b CHIP_bcd_early.bed -u > overlap_opa_oc_early_nobcd.bed
+intersectBed -a overlap_opa_only_early.bed -b CHIP_bcd_early.bed -v > overlap_opa_only_early_nobcd.bed
+intersectBed -a overlap_oc_only_early.bed -b CHIP_bcd_early.bed -v > overlap_oc_only_early_nobcd.bed
+
+intersectBed -a CHIP_opa_late.bed -b CHIP_oc_late.bed -u > overlap_opa_oc_late.bed
+intersectBed -a CHIP_opa_late.bed -b CHIP_oc_late.bed -v > overlap_opa_only_late.bed
+intersectBed -a CHIP_oc_late.bed -b CHIP_opa_late.bed -v > overlap_oc_only_late.bed
+
+
+annotatePeaks.pl CHIP_zld_early.bed dm6 > CHIP_zld_early_homer.txt
+annotatePeaks.pl CHIP_opa_early.bed dm6 > CHIP_opa_early_homer.txt
+annotatePeaks.pl CHIP_bcd_early.bed dm6 > CHIP_bcd_early_homer.txt
+annotatePeaks.pl CHIP_oc_early.bed dm6 > CHIP_oc_early_homer.txt
+annotatePeaks.pl CHIP_zld_late.bed dm6 > CHIP_zld_late_homer.txt
+annotatePeaks.pl CHIP_opa_late.bed dm6 > CHIP_opa_late_homer.txt
+annotatePeaks.pl CHIP_oc_late.bed dm6 > CHIP_oc_late_homer.txt
+
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_zld_early_homer.txt > CHIP_zld_early_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_opa_early_homer.txt > CHIP_opa_early_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_bcd_early_homer.txt > CHIP_bcd_early_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_oc_early_homer.txt > CHIP_oc_early_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_zld_late_homer.txt > CHIP_zld_late_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_opa_late_homer.txt > CHIP_opa_late_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' CHIP_oc_late_homer.txt > CHIP_oc_late_homer_promoter.txt
+
+awk -F '_' '{print $3}' CHIP_zld_late_homer_promoter.txt > CHIP_zld_late_homer_promoter_genes.txt
+awk -F '_' '{print $3}' CHIP_opa_late_homer_promoter.txt > CHIP_opa_late_homer_promoter_genes.txt
+awk -F '_' '{print $3}' CHIP_oc_late_homer_promoter.txt > CHIP_oc_late_homer_promoter_genes.txt
+
+annotatePeaks.pl overlap_opa_oc_late.bed dm6 > overlap_opa_oc_late_homer.txt
+annotatePeaks.pl overlap_opa_only_late.bed dm6 > overlap_opa_only_late_homer.txt
+annotatePeaks.pl overlap_oc_only_late.bed dm6 > overlap_oc_only_late_homer.txt
+
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' overlap_opa_oc_late_homer.txt > overlap_opa_oc_late_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' overlap_opa_only_late_homer.txt > overlap_opa_only_late_homer_promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)<3000) print $2":"$3"-"$4"_"$10"_"$16}' overlap_oc_only_late_homer.txt > overlap_oc_only_late_homer_promoter.txt
+
+awk -F '_' '{print $3}' overlap_opa_oc_late_homer_promoter.txt > overlap_opa_oc_late_homer_promoter_genes.txt
+awk -F '_' '{print $3}' overlap_opa_only_late_homer_promoter.txt > overlap_opa_only_late_homer_promoter_genes.txt
+awk -F '_' '{print $3}' overlap_oc_only_late_homer_promoter.txt > overlap_oc_only_late_homer_promoter_genes.txt
+
+
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_zld_early_homer.txt > CHIP_zld_early_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_opa_early_homer.txt > CHIP_opa_early_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_bcd_early_homer.txt > CHIP_bcd_early_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_oc_early_homer.txt > CHIP_oc_early_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_zld_late_homer.txt > CHIP_zld_late_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_opa_late_homer.txt > CHIP_opa_late_homer_non-promoter.txt
+awk -F '\t' '{if(sqrt($10*$10)>=3000) print $2":"$3"-"$4"_"$10}' CHIP_oc_late_homer.txt > CHIP_oc_late_homer_non-promoter.txt
+
+
