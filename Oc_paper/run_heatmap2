@@ -1,0 +1,80 @@
+export PATH="/home/fgao/anaconda3.5.2/bin:$PATH"
+
+computeMatrix reference-point --referencePoint center -S \
+               H3K4me3_c14a.bw H3K4me3_c14c.bw H3K4me1_c14a.bw H3K4me1_c14c.bw opa_nc14b_chip.bw zld_nc14b_chip.bw BE_dm6.bigwig.bw O5E_dm6.bigwig.bw \
+               -p 80 \
+               -R ../overlap_opa_only_early_nozld_homer_promoter.bed ../overlap_opa_oc_early_nozld_homer_promoter.bed ../overlap_oc_only_early_nozld_homer_promoter.bed \
+               -b 3000 \
+               -a 3000 \
+               --missingDataAsZero \
+               -o matrix.histone.gz
+
+plotHeatmap -m matrix.histone.gz \
+      -out Heatmap_histone_signals_ChIP_regions_early_nozld_promoter_overlap.svg \
+      --sortUsingSamples 1 \
+      -x "Distance (bp)" \
+      --refPointLabel "Peak Center" \
+      --regionsLabel Opa_only "Opa_Oc_overlap" "Oc_only" \
+      --yMax 250 250 250 250 200 200 200 200 \
+      --zMax 250 250 250 250 200 200 200 200 \
+      --samplesLabel H3K4me3_c14a "H3K4me3_c14c" "H3K4me1_c14a" "H3K4me1_c14c" "Opa" "Zld" "Bcd" "Oc"
+
+
+computeMatrix reference-point --referencePoint center -S \
+               H3K4me3_c14a.bw H3K4me3_c14c.bw H3K4me1_c14a.bw H3K4me1_c14c.bw opa_nc15_chip.bw zld_nc14d_chip.bw O6L_dm6.bigwig.bw \
+               -p 80 \
+               -R ../overlap_opa_only_late_nozld_homer_promoter.bed ../overlap_opa_oc_late_nozld_homer_promoter.bed ../overlap_oc_only_late_nozld_homer_promoter.bed \
+               -b 3000 \
+               -a 3000 \
+               --missingDataAsZero \
+               -o matrix.histone.gz
+
+plotHeatmap -m matrix.histone.gz \
+      -out Heatmap_histone_signals_ChIP_regions_late_nozld_promoter_overlap.svg \
+      --sortUsingSamples 1 \
+      -x "Distance (bp)" \
+      --refPointLabel "Peak Center" \
+      --regionsLabel Opa_only "Opa_Oc_overlap" "Oc_only" \
+      --yMax 250 250 250 250 200 200 200 \
+      --zMax 250 250 250 250 200 200 200 \
+      --samplesLabel H3K4me3_c14a "H3K4me3_c14c" "H3K4me1_c14a" "H3K4me1_c14c" "Opa" "Zld" "Oc"
+
+computeMatrix reference-point --referencePoint center -S \
+               H3K4me3_c14a.bw H3K4me3_c14c.bw H3K4me1_c14a.bw H3K4me1_c14c.bw opa_nc14b_chip.bw zld_nc14b_chip.bw BE_dm6.bigwig.bw O5E_dm6.bigwig.bw \
+               -p 80 \
+               -R ../overlap_opa_only_early_nozld_homer_non-promoter.bed ../overlap_opa_oc_early_nozld_homer_non-promoter.bed ../overlap_oc_only_early_nozld_homer_non-promoter.bed \
+               -b 3000 \
+               -a 3000 \
+               --missingDataAsZero \
+               -o matrix.histone.gz
+
+plotHeatmap -m matrix.histone.gz \
+      -out Heatmap_histone_signals_ChIP_regions_early_nozld_non-promoter_overlap.svg \
+      --sortUsingSamples 1 \
+      -x "Distance (bp)" \
+      --refPointLabel "Peak Center" \
+      --regionsLabel Opa_only "Opa_Oc_overlap" "Oc_only" \
+      --yMax 250 250 250 250 200 200 200 200 \
+      --zMax 250 250 250 250 200 200 200 200 \
+      --samplesLabel H3K4me3_c14a "H3K4me3_c14c" "H3K4me1_c14a" "H3K4me1_c14c" "Opa" "Zld" "Bcd" "Oc"
+
+
+computeMatrix reference-point --referencePoint center -S \
+               H3K4me3_c14a.bw H3K4me3_c14c.bw H3K4me1_c14a.bw H3K4me1_c14c.bw opa_nc15_chip.bw zld_nc14d_chip.bw O6L_dm6.bigwig.bw \
+               -p 80 \
+               -R ../overlap_opa_only_late_nozld_homer_non-promoter.bed ../overlap_opa_oc_late_nozld_homer_non-promoter.bed ../overlap_oc_only_late_nozld_homer_non-promoter.bed \
+               -b 3000 \
+               -a 3000 \
+               --missingDataAsZero \
+               -o matrix.histone.gz
+
+plotHeatmap -m matrix.histone.gz \
+      -out Heatmap_histone_signals_ChIP_regions_late_nozld_non-promoter_overlap.svg \
+      --sortUsingSamples 1 \
+      -x "Distance (bp)" \
+      --refPointLabel "Peak Center" \
+      --regionsLabel Opa_only "Opa_Oc_overlap" "Oc_only" \
+      --yMax 250 250 250 250 200 200 200 \
+      --zMax 250 250 250 250 200 200 200 \
+      --samplesLabel H3K4me3_c14a "H3K4me3_c14c" "H3K4me1_c14a" "H3K4me1_c14c" "Opa" "Zld" "Oc"
+
