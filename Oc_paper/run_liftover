@@ -1,0 +1,4 @@
+CrossMap.py bigwig /home/fgao/tools/dm3ToDm6.over.chain BE.bigwig BE_dm6.bigwig
+CrossMap.py bigwig /home/fgao/tools/dm3ToDm6.over.chain O5E.bigwig O5E_dm6.bigwig
+CrossMap.py bigwig /home/fgao/tools/dm3ToDm6.over.chain O6L.bigwig O6L_dm6.bigwig
+
