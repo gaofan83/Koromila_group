@@ -22,3 +22,46 @@ annotatePeaks.pl overlap_oc_only_late.bed dm6 -m /home/fgao/Data_CHIP/Stathopoul
 
 annotatePeaks.pl overlap_opa_oc_late.bed dm6 -m /home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_03272019/manuscript/Opa_MotifOutput/homerResults/motif1.motif /home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_03272019/manuscript/Zld_nc14d_MotifOutput/homerResults/motif1.motif oc_late_MotifOutput/homerResults/motif2.motif overlap_oc_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_late_motif_all_hist.txt
 
+
+annotatePeaks.pl overlap_opa_oc_early_nozld.bed dm6 -m /home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_03272019/manuscript/Opa_MotifOutput/homerResults/motif1.motif \
+            /home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_03272019/manuscript/Zld_nc14d_MotifOutput/homerResults/motif1.motif \
+            oc_early_MotifOutput/homerResults/motif4.motif bcd_early_MotifOutput/homerResults/motif6.motif overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_oc_only_early_nobcd_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_early_nozld_motif_all_hist.txt
+
+
+annotatePeaks.pl overlap_opa_oc_early.bed dm6 -m  overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_early_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_oc_early_nozld.bed dm6 -m overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_early_nozld_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_oc_late.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_late_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_oc_late_nozld.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_oc_late_nozld_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_only_early.bed dm6 -m overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_only_early_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_only_early_nozld.bed dm6 -m overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_only_early_nozld_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_only_late.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_only_late_motif_all_hist.txt
+
+annotatePeaks.pl overlap_opa_only_late_nozld.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_opa_only_late_nozld_motif_all_hist.txt
+
+annotatePeaks.pl overlap_oc_only_early.bed dm6 -m overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_oc_only_early_motif_all_hist.txt
+
+annotatePeaks.pl overlap_oc_only_early_nozld.bed dm6 -m overlap_oc_only_early_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_early_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_oc_only_early_nozld_motif_all_hist.txt
+
+annotatePeaks.pl overlap_oc_only_late.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_oc_only_late_motif_all_hist.txt
+
+annotatePeaks.pl overlap_oc_only_late_nozld.bed dm6 -m overlap_oc_only_late_MotifOutput/homerResults/motif1.motif \
+            overlap_opa_only_late_MotifOutput/homerResults/motif1.motif -size 2000 -hist 50 > overlap_oc_only_late_nozld_motif_all_hist.txt
+
