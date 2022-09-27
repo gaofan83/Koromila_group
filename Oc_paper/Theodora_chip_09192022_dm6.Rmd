@@ -8,6 +8,7 @@ output: html_notebook
 
 ```{r}
 
+library(svglite)
 library(VennDiagram)
 
 data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
@@ -24,13 +25,13 @@ myCol <- c("#4F71BE", "#E6B26C" , "#D3D3D3", "#7EAB55")
 venn.diagram(
         x = list(chip_opa_early, chip_zld_early, chip_bcd_early, chip_oc_early),
         category.names = c("Opa" , "Zld " , "Bcd", "Oc"),
-        filename = paste(data_path, "venn_diagram_early.png", sep=""),
+        filename = paste(data_path, "venn_diagram_early.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -54,6 +55,7 @@ venn.diagram(
       #  rotation = 1
 )
 
+
 ```
 
 
@@ -71,13 +73,13 @@ myCol <- c("#234F9A", "#DE8344",  "#5E813F")
 venn.diagram(
         x = list(chip_opa_late, chip_zld_late, chip_oc_late),
         category.names = c("Opa" , "Zld " , "Oc"),
-        filename = paste(data_path, "venn_diagram_late.png", sep=""),
+        filename = paste(data_path, "venn_diagram_late.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -106,21 +108,21 @@ venn.diagram(
 
 # opa and oc overlap analysis
 ```{r}
-
+data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
 library(RColorBrewer)
-myCol <- c("blue", "green")
+myCol <- c("green", "red")
 
 # Chart
 venn.diagram(
         x = list(chip_opa_early, chip_oc_early),
         category.names = c("Opa" , "Oc"),
-        filename = paste(data_path, "venn_diagram_early_opa_oc_only.png", sep=""),
+        filename = paste(data_path, "venn_diagram_early_opa_oc_only.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -148,13 +150,13 @@ venn.diagram(
 venn.diagram(
         x = list(chip_opa_late, chip_oc_late),
         category.names = c("Opa" , "Oc"),
-        filename = paste(data_path, "venn_diagram_late_opa_oc_only.png", sep=""),
+        filename = paste(data_path, "venn_diagram_late_opa_oc_only.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -199,13 +201,13 @@ myCol <- c("#4F71BE", "#E6B26C" , "#D3D3D3", "#7EAB55")
 venn.diagram(
         x = list(gene_opa_early_promoter, gene_zld_early_promoter, gene_bcd_early_promoter, gene_oc_early_promoter),
         category.names = c("Opa" , "Zld " , "Bcd", "Oc"),
-        filename = paste(data_path, "venn_diagram_early_promoters.png", sep=""),
+        filename = paste(data_path, "venn_diagram_early_promoters.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -246,13 +248,13 @@ myCol <- c("#234F9A", "#DE8344",  "#5E813F")
 venn.diagram(
         x = list(gene_opa_late, gene_zld_late, gene_oc_late),
         category.names = c("Opa" , "Zld " , "Oc"),
-        filename = paste(data_path, "venn_diagram_late_promoters.png", sep=""),
+        filename = paste(data_path, "venn_diagram_late_promoters.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -297,13 +299,13 @@ myCol <- c("#4F71BE", "#E6B26C" , "#D3D3D3", "#7EAB55")
 venn.diagram(
         x = list(gene_opa_early_non_promoter, gene_zld_early_non_promoter, gene_bcd_early_non_promoter, gene_oc_early_non_promoter),
         category.names = c("Opa" , "Zld " , "Bcd", "Oc"),
-        filename = paste(data_path, "venn_diagram_early_non-promoters.png", sep=""),
+        filename = paste(data_path, "venn_diagram_early_non-promoters.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -344,13 +346,13 @@ myCol <- c("#234F9A", "#DE8344",  "#5E813F")
 venn.diagram(
         x = list(gene_opa_late_non_promoter, gene_zld_late_non_promoter, gene_oc_late_non_promoter),
         category.names = c("Opa" , "Zld " , "Oc"),
-        filename = paste(data_path, "venn_diagram_late_non-promoters.png", sep=""),
+        filename = paste(data_path, "venn_diagram_late_non-promoters.svg", sep=""),
         output=TRUE,
         
         # Output features
-        imagetype="png" ,
-        height = 640 , 
-        width = 640 , 
+        imagetype="svg" ,
+        height = 6 , 
+        width = 6 , 
         resolution = 300,
         compression = "lzw",
         
@@ -418,9 +420,178 @@ g3<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data 
     scale_color_manual(values=c("blue", "red", "green", "yellow")) + theme_bw() + 
   ggtitle("de novo motifs enriched at Opa,Oc regions") +ylab("Sites per bp per peak")
 
+mydata<-read.table(paste(data_path, "overlap_opa_oc_early_nozld_motif_all_hist.txt", sep=""), header=T,sep="\t")
+opa<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Opa",nrow(mydata)))
+zld<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Zld",nrow(mydata)))
+oc<-data.frame(Distance=mydata[,1],Intensity=mydata[,8],Group=rep("Oc",nrow(mydata)))
+bcd<-data.frame(Distance=mydata[,1],Intensity=mydata[,11],Group=rep("Bcd",nrow(mydata)))
+
+chip<-rbind(opa, zld, oc, bcd)
+g4<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red", "green", "yellow")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa,Oc regions (nozld)") +ylab("Sites per bp per peak")
+
 g1
 g2
 g3
+g4
+
+```
+
+
+#Aggregation plots overlap early
+
+```{r}
+
+data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
+library(ggplot2)
+
+mydata<-read.table(paste(data_path, "overlap_opa_only_early_motif_all_hist.txt", sep=""), header=T, sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g1<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) +
+  scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa only regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_oc_only_early_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g2<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Oc only regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_oc_early_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g3<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa,Oc regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_only_early_nozld_motif_all_hist.txt", sep=""), header=T, sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g4<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) +
+  scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa only regions (nozld)") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_oc_only_early_nozld_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g5<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Oc only regions (nozld)") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_oc_early_nozld_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g6<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa,Oc regions (nozld)") +ylab("Sites per bp per peak")
+
+g1
+g2
+g3
+g4
+g5
+g6
+
+ggsave(file=paste(data_path, "overlap_opa_only_early_motif.svg", sep=""), plot=g1, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_oc_only_early_motif.svg", sep=""), plot=g2, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_oc_early_motif.svg", sep=""), plot=g3, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_only_early_nozld_motif.svg", sep=""), plot=g4, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_oc_only_early_nozld_motif.svg", sep=""), plot=g5, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_oc_early_nozld_motif.svg", sep=""), plot=g6, width=9, height=6)
+
+
+```
+
+
+#Aggregation plots overlap late
+
+```{r}
+
+data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
+library(ggplot2)
+
+mydata<-read.table(paste(data_path, "overlap_opa_only_late_motif_all_hist.txt", sep=""), header=T, sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g1<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) +
+  scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa only regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_oc_only_late_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g2<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Oc only regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_oc_late_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g3<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa,Oc regions") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_only_late_nozld_motif_all_hist.txt", sep=""), header=T, sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g4<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) +
+  scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa only regions (nozld)") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_oc_only_late_nozld_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g5<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Oc only regions (nozld)") +ylab("Sites per bp per peak")
+
+mydata<-read.table(paste(data_path, "overlap_opa_oc_late_nozld_motif_all_hist.txt", sep=""), header=T,sep="\t")
+oc_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,2],Group=rep("Oc",nrow(mydata)))
+opa_only<-data.frame(Distance=mydata[,1],Intensity=mydata[,5],Group=rep("Opa",nrow(mydata)))
+
+chip<-rbind(oc_only, opa_only)
+g6<-ggplot() + geom_line(aes(y = Intensity, x = Distance, colour = Group), data = chip) + 
+    scale_color_manual(values=c("blue", "red")) + theme_bw() + 
+  ggtitle("de novo motifs enriched at Opa,Oc regions (nozld)") +ylab("Sites per bp per peak")
+
+g1
+g2
+g3
+g4
+g5
+g6
+
+ggsave(file=paste(data_path, "overlap_opa_only_late_motif.svg", sep=""), plot=g1, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_oc_only_late_motif.svg", sep=""), plot=g2, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_oc_late_motif.svg", sep=""), plot=g3, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_only_late_nozld_motif.svg", sep=""), plot=g4, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_oc_only_late_nozld_motif.svg", sep=""), plot=g5, width=9, height=6)
+ggsave(file=paste(data_path, "overlap_opa_oc_late_nozld_motif.svg", sep=""), plot=g6, width=9, height=6)
 
 
 ```
@@ -575,6 +746,8 @@ m3<-t(read.table(paste(data_path, "motif3.motif", sep=""), skip=1, header=F))
 m4<-t(read.table(paste(data_path, "motif4.motif", sep=""), skip=1, header=F))
 m6<-t(read.table(paste(data_path, "motif6.motif", sep=""), skip=1, header=F))
 
+m1_r<-m1[order(nrow(m1):1),order(ncol(m1):1)]
+
 library(seqLogo)
 
 p1<-makePWM(m1)
@@ -591,6 +764,9 @@ seqLogo(p4)
 
 p6<-makePWM(m6)
 seqLogo(p6)
+
+p1_r<-makePWM(m1_r)
+seqLogo(p1_r)
 
 ```
 
@@ -641,6 +817,8 @@ m5<-t(read.table(paste(data_path, "motif5.motif", sep=""), skip=1, header=F))
 m9<-t(read.table(paste(data_path, "motif9.motif", sep=""), skip=1, header=F))
 m10<-t(read.table(paste(data_path, "motif10.motif", sep=""), skip=1, header=F))
 
+m1_r<-m1[order(nrow(m1):1),order(ncol(m1):1)]
+
 library(seqLogo)
 
 p1<-makePWM(m1)
@@ -664,6 +842,9 @@ seqLogo(p9)
 p10<-makePWM(m10)
 seqLogo(p10)
 
+p1_r<-makePWM(m1_r)
+seqLogo(p1_r)
+
 ```
 
 
@@ -678,6 +859,8 @@ m2<-t(read.table(paste(data_path, "motif2.motif", sep=""), skip=1, header=F))
 m3<-t(read.table(paste(data_path, "motif3.motif", sep=""), skip=1, header=F))
 m4<-t(read.table(paste(data_path, "motif4.motif", sep=""), skip=1, header=F))
 
+m1_r<-m1[order(nrow(m1):1),order(ncol(m1):1)]
+
 library(seqLogo)
 
 p1<-makePWM(m1)
@@ -691,6 +874,9 @@ seqLogo(p3)
 
 p4<-makePWM(m4)
 seqLogo(p4)
+
+p1_r<-makePWM(m1_r)
+seqLogo(p1_r)
 
 ```
 
@@ -739,6 +925,8 @@ m3<-t(read.table(paste(data_path, "motif3.motif", sep=""), skip=1, header=F))
 m4<-t(read.table(paste(data_path, "motif4.motif", sep=""), skip=1, header=F))
 m8<-t(read.table(paste(data_path, "motif8.motif", sep=""), skip=1, header=F))
 
+m1_r<-m1[order(nrow(m1):1),order(ncol(m1):1)]
+
 library(seqLogo)
 
 p1<-makePWM(m1)
@@ -756,6 +944,9 @@ seqLogo(p4)
 p8<-makePWM(m8)
 seqLogo(p8)
 
+p1_r<-makePWM(m1_r)
+seqLogo(p1_r)
+
 ```
 
 
@@ -765,16 +956,18 @@ seqLogo(p8)
 ```{r}
 
 rnaseq<-read.csv("/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/RNAseq/RNAseq_statistics.csv", header=T)
-rnaseq_up<-rnaseq[rnaseq$log2.fold_change.>0 & rnaseq$significant=="yes", 1]
-rnaseq_dn<-rnaseq[rnaseq$log2.fold_change.<0 & rnaseq$significant=="yes", 1]
+rnaseq_up<-rnaseq[as.numeric(rnaseq$value_1) < as.numeric(rnaseq$value_2) & rnaseq$significant=="yes", 1]
+rnaseq_dn<-rnaseq[as.numeric(rnaseq$value_1) > as.numeric(rnaseq$value_2) & rnaseq$significant=="yes", 1]
+rnaseq_nochange<-rnaseq[rnaseq$significant=="no", 1]
 
 data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
-genes_oc_late<-data.frame(read.table(paste(data_path, "CHIP_oc_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
-genes_opa_late<-data.frame(read.table(paste(data_path, "CHIP_opa_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
-genes_zld_late<-data.frame(read.table(paste(data_path, "CHIP_zld_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
-genes_overlap_oc_only_late<-data.frame(read.table(paste(data_path, "overlap_oc_only_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
-genes_overlap_opa_oc_late<-data.frame(read.table(paste(data_path, "overlap_opa_oc_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
-genes_overlap_opa_only_late<-data.frame(read.table(paste(data_path, "overlap_opa_only_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1]
+genes_oc_late<-unique(data.frame(read.table(paste(data_path, "CHIP_oc_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_opa_late<-unique(data.frame(read.table(paste(data_path, "CHIP_opa_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_zld_late<-unique(data.frame(read.table(paste(data_path, "CHIP_zld_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_oc_only_late<-unique(data.frame(read.table(paste(data_path, "overlap_oc_only_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_opa_oc_late<-unique(data.frame(read.table(paste(data_path, "overlap_opa_oc_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_opa_only_late<-unique(data.frame(read.table(paste(data_path, "overlap_opa_only_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+chipseq_gene<-read.table("/home/fgao/software/homer/data/accession/fly2gene.tsv", header=F, sep="\t", fill=TRUE)
 
 rnaseq_oc_late<-rnaseq[rnaseq$gene_id%in%genes_oc_late, ]
 rnaseq_opa_late<-rnaseq[rnaseq$gene_id%in%genes_opa_late, ]
@@ -813,14 +1006,14 @@ chip_id<-NULL
 count_value<-NULL
 gene_overlap<-NULL
 
-for (deg in list("rnaseq_up", "rnaseq_dn"))
+for (deg in list("rnaseq_up", "rnaseq_dn", "rnaseq_nochange"))
 {
   for (chip in list("genes_oc_late", "genes_opa_late", "genes_overlap_oc_only_late", "genes_overlap_opa_oc_late", "genes_overlap_opa_only_late"))
 #  for (chip in list("genes_overlap_oc_only_late", "genes_overlap_opa_oc_late", "genes_overlap_opa_only_late"))
   {
-    p_value<-c(p_value, unlist(calc_overlap(get(deg), get(chip), nrow(rnaseq))[1]))
-    count_value<-c(count_value, unlist(calc_overlap(get(deg), get(chip), nrow(rnaseq))[2]))
-    gene_overlap<-c(gene_overlap, paste(unlist(calc_overlap(get(deg), get(chip), nrow(rnaseq))[3]), sep=","))
+    p_value<-c(p_value, unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[1]))
+    count_value<-c(count_value, unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[2]))
+    gene_overlap<-c(gene_overlap, paste(unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[3]), sep=","))
     deg_id<-c(deg_id, deg)
     chip_id<-c(chip_id, chip)
   }
@@ -829,15 +1022,115 @@ for (deg in list("rnaseq_up", "rnaseq_dn"))
 p_table<-data.frame(deg_id, chip_id, p_value, count_value, gene_overlap)
 
 library(ggplot2)
-plot_pvalue<-ggplot(p_table, aes(x=deg_id, y=chip_id, fill=count_value)) + geom_tile() + ggtitle("overlapping gene counts") + theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5), text = element_text(size = 16), axis.text = element_text(size = 16))     
+
+plot_pvalue<-ggplot(p_table, aes(x=deg_id, y=chip_id, fill=(-log10(p_value)))) + geom_tile() + ggtitle("overlapping gene significance") + theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5), text = element_text(size = 16), axis.text = element_text(size = 16))     
 plot_pvalue
-png(paste(data_path, "rnaseq_chipseq_overlap_gene_counts.png", sep=""), width=640, height=640)
+png(paste(data_path, "rnaseq_chipseq_overlap_gene_pvalue.png", sep=""), width=640, height=640)
 plot_pvalue
 dev.off()
 
-ggsave(file=paste(data_path, "rnaseq_chipseq_overlap_gene_counts.svg", sep=""), plot=plot_pvalue, width=8, height=8)
+plot_count<-ggplot(p_table, aes(x=deg_id, y=chip_id, fill=log10(count_value))) + geom_tile() + ggtitle("overlapping gene counts") + theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5), text = element_text(size = 16), axis.text = element_text(size = 16))     
+plot_count
+png(paste(data_path, "rnaseq_chipseq_overlap_gene_counts.png", sep=""), width=640, height=640)
+plot_count
+dev.off()
+
+ggsave(file=paste(data_path, "rnaseq_chipseq_overlap_gene_pvalue.svg", sep=""), plot=plot_pvalue, width=8, height=8)
+ggsave(file=paste(data_path, "rnaseq_chipseq_overlap_gene_counts.svg", sep=""), plot=plot_count, width=8, height=8)
 
 write.table(p_table, file=paste(data_path, "rnaseq_chipseq_overlap_statistics_table.txt", sep=""), quote=F, row.names=F)
+
+```
+
+
+# RNAseq data analysis2
+
+```{r}
+
+rnaseq<-read.csv("/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/RNAseq/RNAseq_statistics.csv", header=T)
+rnaseq_up<-rnaseq[as.numeric(rnaseq$value_1) < as.numeric(rnaseq$value_2) & rnaseq$significant=="yes", 1]
+rnaseq_dn<-rnaseq[as.numeric(rnaseq$value_1) > as.numeric(rnaseq$value_2) & rnaseq$significant=="yes", 1]
+rnaseq_nochange<-rnaseq[rnaseq$significant=="no", 1]
+
+data_path="/home/fgao/Data_CHIP/Stathopoulos_Lab/Theodora_09192022/dm6_epigenome/"
+genes_oc_late<-unique(data.frame(read.table(paste(data_path, "CHIP_oc_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_opa_late<-unique(data.frame(read.table(paste(data_path, "CHIP_opa_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_zld_late<-unique(data.frame(read.table(paste(data_path, "CHIP_zld_late_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_oc_only_late<-unique(data.frame(read.table(paste(data_path, "overlap_oc_only_late_nozld_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_opa_oc_late<-unique(data.frame(read.table(paste(data_path, "overlap_opa_oc_late_nozld_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+genes_overlap_opa_only_late<-unique(data.frame(read.table(paste(data_path, "overlap_opa_only_late_nozld_homer_promoter_genes.txt", sep=""), header=T, sep="\t"))[,1])
+chipseq_gene<-read.table("/home/fgao/software/homer/data/accession/fly2gene.tsv", header=F, sep="\t", fill=TRUE)
+
+rnaseq_oc_late<-rnaseq[rnaseq$gene_id%in%genes_oc_late, ]
+rnaseq_opa_late<-rnaseq[rnaseq$gene_id%in%genes_opa_late, ]
+rnaseq_overlap_oc_only_late<-rnaseq[rnaseq$gene_id%in%genes_overlap_oc_only_late, ]
+rnaseq_overlap_opa_oc_late<-rnaseq[rnaseq$gene_id%in%genes_overlap_opa_oc_late, ]
+rnaseq_overlap_opa_only_late<-rnaseq[rnaseq$gene_id%in%genes_overlap_opa_only_late, ]
+
+boxplot(as.numeric(rnaseq_oc_late$log2.fold_change.), 
+        as.numeric(rnaseq_opa_late$log2.fold_change.),
+        as.numeric(rnaseq_overlap_oc_only_late$log2.fold_change.),
+        as.numeric(rnaseq_overlap_opa_oc_late$log2.fold_change.),
+        as.numeric(rnaseq_overlap_opa_only_late$log2.fold_change.),
+        ylim=c(-1,1), names=c("Oc_late", "Opa_late", "overlap_Oc_only", "overlap_Opa_Oc", "overlap_Opa_only"))
+
+calc_overlap<-function(set1, set2, total)
+  {n_tot<-total
+   n_set1<-length(set1)
+   n_set2<-length(set2)
+   n_pp<-length(intersect(set1, set2))
+   n_nn<-n_tot-(n_set1+n_set2-n_pp)
+   n_pn<-n_set1-n_pp
+   n_np<-n_set2-n_pp
+   matri1=matrix(c(n_nn, n_pn, n_np, n_pp),nrow=2)
+   #stat1=fisher.test(matri1,alternative="two.sided")
+   stat1=fisher.test(matri1,alternative="greater")
+   result1=stat1$p.value
+   result2=n_pp
+   result3=paste(intersect(set1, set2), collapse=",")
+   result=list(result1, result2, result3)
+   return(result)
+}
+
+p_value<-NULL
+deg_id<-NULL
+chip_id<-NULL
+count_value<-NULL
+gene_overlap<-NULL
+
+for (deg in list("rnaseq_up", "rnaseq_dn", "rnaseq_nochange"))
+{
+  for (chip in list("genes_oc_late", "genes_opa_late", "genes_overlap_oc_only_late", "genes_overlap_opa_oc_late", "genes_overlap_opa_only_late"))
+#  for (chip in list("genes_overlap_oc_only_late", "genes_overlap_opa_oc_late", "genes_overlap_opa_only_late"))
+  {
+    p_value<-c(p_value, unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[1]))
+    count_value<-c(count_value, unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[2]))
+    gene_overlap<-c(gene_overlap, paste(unlist(calc_overlap(get(deg), get(chip), length(unique(c(rnaseq$gene_id, chipseq_gene$V7))))[3]), sep=","))
+    deg_id<-c(deg_id, deg)
+    chip_id<-c(chip_id, chip)
+  }
+}
+
+p_table<-data.frame(deg_id, chip_id, p_value, count_value, gene_overlap)
+
+library(ggplot2)
+
+plot_pvalue<-ggplot(p_table, aes(x=deg_id, y=chip_id, fill=(-log10(p_value)))) + geom_tile() + ggtitle("overlapping gene significance") + theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5), text = element_text(size = 16), axis.text = element_text(size = 16))     
+plot_pvalue
+png(paste(data_path, "rnaseq_chipseq_nozld_overlap_gene_pvalue.png", sep=""), width=640, height=640)
+plot_pvalue
+dev.off()
+
+plot_count<-ggplot(p_table, aes(x=deg_id, y=chip_id, fill=log10(count_value))) + geom_tile() + ggtitle("overlapping gene counts") + theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5), text = element_text(size = 16), axis.text = element_text(size = 16))     
+plot_count
+png(paste(data_path, "rnaseq_chipseq_nozld_overlap_gene_counts.png", sep=""), width=640, height=640)
+plot_count
+dev.off()
+
+ggsave(file=paste(data_path, "rnaseq_chipseq_nozld_overlap_gene_pvalue.svg", sep=""), plot=plot_pvalue, width=8, height=8)
+ggsave(file=paste(data_path, "rnaseq_chipseq_nozld_overlap_gene_counts.svg", sep=""), plot=plot_count, width=8, height=8)
+
+write.table(p_table, file=paste(data_path, "rnaseq_chipseq_nozld_overlap_statistics_table.txt", sep=""), quote=F, row.names=F)
 
 ```
 
