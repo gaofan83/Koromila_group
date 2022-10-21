@@ -128,3 +128,7 @@ awk -F '\t' '{if(sqrt($10*$10)>=3000 && NR>1) print $2"\t"$3"\t"$4}' overlap_opa
 awk -F '\t' '{if(sqrt($10*$10)>=3000 && NR>1) print $2"\t"$3"\t"$4}' overlap_opa_only_late_nozld_homer.txt > overlap_opa_only_late_nozld_homer_non-promoter.bed
 awk -F '\t' '{if(sqrt($10*$10)>=3000 && NR>1) print $2"\t"$3"\t"$4}' overlap_oc_only_late_nozld_homer.txt > overlap_oc_only_late_nozld_homer_non-promoter.bed
 
+annotatePeaks.pl overlap_oc_only_late_nozld_homer_non-promoter.bed dm6 > overlap_oc_only_late_nozld_homer_non-promoter.txt
+
+intersectBed -a overlap_oc_only_early_nozld_homer_non-promoter.bed -b CHIP_bcd_early.bed -v > overlap_oc_only_early_nozld_nobcd_homer_non-promoter.bed
+annotatePeaks.pl overlap_oc_only_early_nozld_nobcd_homer_non-promoter.bed dm6 > overlap_oc_only_early_nozld_nobcd_homer_non-promoter.txt
